@@ -1,10 +1,7 @@
 import { TodoRepository } from "../../Repository/TodoRepository";
+import { UseCase } from "../UseCase";
 
-export interface RemoveTodosUseCase {
-  invoke: (id: number) => Promise<boolean>
-}
-
-export class RemoveTodo implements RemoveTodosUseCase {
+export class RemoveTodo implements UseCase<number, boolean> {
   private todoRepo: TodoRepository
 
   constructor(_todoRepo: TodoRepository) {

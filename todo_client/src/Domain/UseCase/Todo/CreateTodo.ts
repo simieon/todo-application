@@ -1,11 +1,8 @@
 import { Todo } from "../../Models/Todo";
 import { TodoRepository } from "../../Repository/TodoRepository";
+import { UseCase } from "../UseCase";
 
-export interface CreateTodosUseCase {
-  invoke: (value: string) => Promise<Todo>
-}
-
-export class CreateTodo implements CreateTodosUseCase {
+export class CreateTodo implements UseCase<string, Todo> {
   private todoRepo: TodoRepository
 
   constructor(_todoRepo: TodoRepository){

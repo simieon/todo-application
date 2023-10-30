@@ -1,10 +1,7 @@
 import { TodoRepository } from "../../Repository/TodoRepository";
+import { UseCase } from "../UseCase";
 
-export interface ToggleCheckTodoUseCase {
-  invoke: (id: number) => Promise<boolean>
-}
-
-export class ToggleCheckTodo implements ToggleCheckTodoUseCase {
+export class ToggleCheckTodo implements UseCase<number, boolean> {
   private todoRepo: TodoRepository
 
   constructor(_todoRepo: TodoRepository){
